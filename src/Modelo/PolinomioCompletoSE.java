@@ -35,12 +35,29 @@ public class PolinomioCompletoSE {
 			if (anterior == null) {
 				primerTermino = nuevoNodo;
 			} else {
-				anterior.cambiarSiguiente(nuevoNodo);
+				anterior.setNodoSiguiente(nuevoNodo);
 			}
 			return true;
 		}
 		return false;
 	}
+	
+	public PolinomioCompletoSE derivar() {
+        PolinomioCompletoSE derivada = new PolinomioCompletoSE();
+        if (primerTermino != null) {
+            Nodo aux = primerTermino.getNodoSiguiente();
+            int exponente = 1;
+            
+            while (aux != null) {
+                double nuevoCoeficiente = aux.getCoeficiente() * exponente;
+                derivada.agregar(nuevoCoeficiente);
+                
+                aux = aux.getNodoSiguiente();
+                exponente++;
+            }
+        }
+        return derivada;
+    }
 
 	public double coeficiente(int exponente) throws NoSuchElementException {
 		if (!this.estaVacio()) {
@@ -68,10 +85,7 @@ public class PolinomioCompletoSE {
 	}
 
 	public boolean estaVacio() {
-		if (primerTermino == null) {
-			return true;
-		}
-		return false;
+		return primerTermino == null;
 	}
 
 	public double evaluar(double x) {

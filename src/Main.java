@@ -12,7 +12,7 @@ public class Main {
 		System.out.println(polinomio.esIgual(polinomio.clonar())); 
 		System.out.println(polinomio.grado());
 		System.out.println(polinomio.cantidadTerminos());
-		//Falta derivar polinomio
+		System.out.println(polinomio.derivar());
 		System.out.println(polinomio.clonar().toString());
 	}
 

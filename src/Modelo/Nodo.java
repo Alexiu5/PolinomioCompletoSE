@@ -31,10 +31,4 @@ public class Nodo {
 		this.nodoSiguiente = nodoSiguiente;
 	}
 	
-	// Custom methods
-	
-	public void cambiarSiguiente(Nodo siguiente) {
-		this.nodoSiguiente = siguiente;
-	}
-
 }
